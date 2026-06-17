@@ -1,62 +1,45 @@
-# Nginx Configuration Manager Script
+# Nginx Config Manager
 
-This script provides a simple command-line interface (CLI) for managing Nginx server configurations in the directories `/etc/nginx/sites-available` (available configurations) and `/etc/nginx/sites-enabled` (enabled configurations).
+A Bash helper for managing Nginx site configuration files from an interactive terminal menu.
 
-## Features
+## Overview
 
-- List all available and enabled Nginx configurations.
-- Enable, disable, edit, and remove Nginx configurations.
-- Add new Nginx configurations easily through the CLI.
-
-## Requirements
-
-- Bash (Bourne Again Shell)
-- Nginx installed and configured
-- Sudo privileges to manage Nginx configurations
+A Bash helper for managing Nginx site configuration files from an interactive terminal menu.
 
 ## Features
 
-  - Manage Nginx configurations.
-  - Enable or disable configurations.
-  - Edit or remove existing configurations.
-  - Add new configurations.
-  - Automatically restart Nginx after enabling configuration.
+- Lists available Nginx configuration files.
+- Provides scripts to add, edit, enable, disable, and remove configs.
+- Loads shared configuration and helper scripts from a single menu loop.
 
-## Requirements 
+## Tech Stack
 
-  - Nginx installed on your system.
-  - The script assumes standard Nginx configuration file naming and directory conventions (sites-available and sites-enabled).
-    
-## Usage
+- Bash
+- Nginx
+- Linux shell scripting
 
-  1. **Clone the repository**:
-     ```bash
-     git clone https://github.com/algisbernatovics/nginx-conf-manager.git
-     ```
-  2. **Make the script executable**:
-     ```bash
-     cd nginx-conf-manager
-     chmod +x nginx-conf-manager.sh
-     ```
-  3. **Run the script**:
-     ```bash
-     ./nginx-conf-manager.sh
-     ```
-  4. **Follow the on-screen prompts**:
-     - Enter the number corresponding to the configuration you want to manage.
-     - Choose to enable, disable, edit, or remove the configuration.
-     - To add a new configuration, select `a` and enter the name of the new configuration file.
+## Project Structure
 
-- **Example**:
-  ```bash
-  # List configurations
-  ./nginx-conf-manager.sh
+- `main.sh` - interactive menu loop
+- `config.sh` - paths and shared configuration
+- `add.sh, edit.sh, enable.sh, disable.sh, remove.sh` - individual Nginx operations
 
-  # Enable a configuration
-  Enter the number of the configuration to enable/disable/edit/remove/add (0 to exit, a to add a new configuration): 1
-  Configuration example.com is available. Do you want to enable it (e), edit it (d), or remove it (r)? (e/d/r): e
+## Getting Started
 
-  # Add a new configuration
-  Enter the number of the configuration to enable/disable/edit/remove/add (0 to exit, a to add a new configuration): a
-  Enter the name of the new configuration file: new_site.conf
-  Created new configuration testsite.com
+Review `config.sh` first, then start the menu:
+
+```bash
+chmod +x *.sh
+./main.sh
+```
+
+Run with appropriate permissions for the target Nginx configuration directory.
+
+## Portfolio Notes
+
+- Demonstrates practical Linux automation for server administration.
+- Breaks each action into a separate shell script for maintainability.
+
+## Status
+
+Portfolio-ready operations utility.
